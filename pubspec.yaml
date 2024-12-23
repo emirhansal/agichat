@@ -1,0 +1,103 @@
+name: agichat
+description: "A new Flutter project."
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.1.3 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  
+  firebase_core: ^3.9.0
+  firebase_analytics: ^11.3.6
+  firebase_crashlytics: ^4.2.0
+  firebase_remote_config: ^5.2.0
+  cloud_firestore: ^5.6.0
+
+  uuid: ^4.1.0
+  connectivity_plus: ^5.0.2
+  auto_route: ^7.8.2
+  property_change_notifier: ^0.5.0
+  retrofit: 4.0.1
+  json_annotation: ^4.9.0
+  dio_http2_adapter: ^2.3.0
+  hive_flutter: 1.1.0
+  provider: ^6.1.1
+  dart_json_mapper: ^2.2.10
+  shimmer: 3.0.0
+  flutter_svg: ^2.0.7
+  flutter_flavor: ^3.1.3
+  fluttertoast: ^8.2.2
+  image_picker: ^1.0.4
+  file_picker: ^6.1.1
+  permission_handler: ^11.1.0
+  adaptive_dialog: ^2.0.0
+  device_info_plus: ^9.0.2
+  package_info_plus: ^8.1.1
+  cached_network_image: 3.3.0
+  animate_do: ^3.1.2
+  
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^4.0.0
+  build_runner: ^2.4.5
+  auto_route_generator: ^7.3.1
+  firebase_core_platform_interface: ^5.4.0
+  
+  retrofit_generator:
+    path: lib/packages/retrofit_generator/
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/images/
+    - assets/svg/
+    - assets/fonts/
+    - assets/translations/
+
+  fonts:
+    - family: display-black-italic
+      fonts:
+        - asset: assets/fonts/SF-Pro-Display-Black-Italic.otf
+
+    - family: display-bold
+      fonts:
+        - asset: assets/fonts/SF-Pro-Display-Bold.otf
+    
+    - family: display-heavy-italic
+      fonts:
+        - asset: assets/fonts/SF-Pro-Display-Heavy-Italic.otf
+
+    - family: display-light-italic
+      fonts:
+        - asset: assets/fonts/SF-Pro-Display-Light-Italic.otf
+
+    - family: display-medium
+      fonts:
+        - asset: assets/fonts/SF-Pro-Display-Medium.otf
+    
+    - family: display-regular
+      fonts:
+        - asset: assets/fonts/SF-Pro-Display-Regular.otf
+    
+    - family: display-semi-bold-italic
+      fonts:
+        - asset: assets/fonts/SF-Pro-Display-Semi-Bold-Italic.otf
+
+    - family: display-thin-italic
+      fonts:
+        - asset: assets/fonts/SF-Pro-Display-Thin-Italic.otf
+
+    - family: display-ultra-light-italic
+      fonts:
+        - asset: assets/fonts/SF-Pro-Display-Ultra-Light-Italic.otf
