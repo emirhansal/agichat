@@ -5,10 +5,31 @@ plugins {
     id 'dev.flutter.flutter-gradle-plugin'
 }
 
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
 android {
     compileSdkVersion 34
     
     namespace "com.example.agichat"
+
+    signingConfigs {
+        release {
+            keyAlias 'agichat-alias'
+            keyPassword 'agichat'
+            storeFile file('../agichat.jks')
+            storePassword 'agichat'
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+        }
+    }
 
     defaultConfig {
         applicationId "com.example.agichat"
