@@ -753,7 +753,7 @@ packages:
     source: hosted
     version: "2.0.0"
   intl:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: intl
       sha256: "3bc132a9dbce73a7e4a21a17d06e1878839ffbf975568bc875c60537824b0c4d"
@@ -1097,7 +1097,7 @@ packages:
     source: hosted
     version: "1.4.0"
   reflectable:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: reflectable
       sha256: "775388897bfce5b1d0386b7160706367b565cdc72b5870bc6a198d0f7be1aa0b"

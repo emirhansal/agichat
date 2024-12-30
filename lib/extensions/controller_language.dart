@@ -12,14 +12,18 @@ import 'package:flutter/services.dart';
 class LanguageController {
   static AppLanguage currentAppLang = AppLanguage.en;
 
-  static ModelDropdown tr = ModelDropdown(id: AppLanguage.tr.id, title: 'Türkçe', text: 'tr');
-  static ModelDropdown en = ModelDropdown(id: AppLanguage.en.id, title: 'English', text: 'en');
+  static ModelDropdown tr =
+      ModelDropdown(id: AppLanguage.tr.id, title: 'Türkçe', text: 'tr');
+  static ModelDropdown en =
+      ModelDropdown(id: AppLanguage.en.id, title: 'İngilizce', text: 'en');
 
   static late Locale currentLocale;
   static late Map<String, dynamic> selectedLocaleJson;
 
   static const String translationsPath = 'assets/translations';
-  static const List<Locale> supportedLocales = [Locale('en', 'US'), Locale('tr', 'TR')];
+  static const List<Locale> supportedLocales = [
+    Locale('en', 'US'),
+  ];
 
   static Future<void> setLanguage(AppLanguage language) async {
     if (GeneralData.getInstance().getLanguage() != language) {
@@ -29,7 +33,8 @@ class LanguageController {
     }
     R.refreshClass();
 
-    log('current language: ${currentLocale.toLanguageTag()}', name: 'LOCALIZATION');
+    log('current language: ${currentLocale.toLanguageTag()}',
+        name: 'LOCALIZATION');
   }
 
   static Future<void> initialize() async {
@@ -37,11 +42,6 @@ class LanguageController {
       case AppLanguage.en:
         currentLocale = supportedLocales[0];
         currentAppLang = AppLanguage.en;
-        await loadLang();
-        break;
-      case AppLanguage.tr:
-        currentLocale = supportedLocales[1];
-        currentAppLang = AppLanguage.tr;
         await loadLang();
         break;
       default:
@@ -59,15 +59,17 @@ class LanguageController {
         break;
     }
 
-    log('current language: ${currentLocale.toLanguageTag()}', name: 'LOCALIZATION');
+    log('current language: ${currentLocale.toLanguageTag()}',
+        name: 'LOCALIZATION');
   }
 
   static Future<void> loadLang() async {
-    selectedLocaleJson = jsonDecode(await rootBundle.loadString('$translationsPath/${currentLocale.toLanguageTag()}.json'));
+    selectedLocaleJson = jsonDecode(await rootBundle
+        .loadString('$translationsPath/${currentLocale.toLanguageTag()}.json'));
   }
 
   static List<ModelDropdown> getLanguagesForDropdown() {
-    return [tr, en];
+    return [en, en];
   }
 
   static getLocale(String tag) {

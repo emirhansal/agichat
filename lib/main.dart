@@ -31,34 +31,38 @@ Future<void> main() async {
       initializeReflectable();
 
       WidgetsFlutterBinding.ensureInitialized();
-      await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+      await Firebase.initializeApp(
+          options: DefaultFirebaseOptions.currentPlatform);
 
       await Hive.initFlutter();
-      GeneralData.getInstance().hive = await Hive.openBox('85383af9c4684bc5e4fd4633042423d658fc518c');
+      GeneralData.getInstance().hive =
+          await Hive.openBox('85383af9c4684bc5e4fd4633042423d658fc518c');
 
       await LanguageController.initialize();
-      //await ServiceNotification.configure();
-      //ServiceJsonMapperContext();
+      await LanguageController.setLanguage(AppLanguage.en);
 
-      await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+      await SystemChrome.setPreferredOrientations(
+          [DeviceOrientation.portraitUp]);
 
-      SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: R.color.transparent, systemNavigationBarColor: R.color.transparent));
+      SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+          statusBarColor: R.color.transparent,
+          systemNavigationBarColor: R.color.transparent));
 
-      await SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge, overlays: [SystemUiOverlay.top, SystemUiOverlay.bottom]);
+      await SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge,
+          overlays: [SystemUiOverlay.top, SystemUiOverlay.bottom]);
 
       runApp(const MyApp());
     },
-    (error, stack) => FirebaseCrashlytics.instance.recordError(error, stack, fatal: true),
+    (error, stack) =>
+        FirebaseCrashlytics.instance.recordError(error, stack, fatal: true),
   );
 }
-
 
 class MyApp extends StatelessWidget with BaseView {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    LanguageController.setLanguage(AppLanguage.tr);
     ViewUtils.getInstance();
     return MultiProvider(
       providers: providers,

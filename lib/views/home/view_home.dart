@@ -248,25 +248,33 @@ class ViewHomeState extends WidgetBaseStatefull<ViewHome, VmHome> {
       margin: const EdgeInsets.all(10.0),
       child: TextFieldBasic(
         bgColor: R.color.white,
+        
         prefixIcon: Container(
           padding: const EdgeInsets.all(6.0),
           child: AnimatedSwitcher(
             duration: const Duration(milliseconds: 300),
-            child: viewModel.textController.text.isEmpty
-                ? SvgPicture.asset(
+            child:SvgPicture.asset(
                     R.drawable.svg.iconAttach,
                     width: 36.0,
-                  )
-                : Container(),
+                ),
           ),
         ),
-        suffixIcon: GestureDetector(
-          onTap: viewModel.sendMessage,
-          child: Icon(
-            Icons.send,
-            color: R.color.appBackgroundColor,
-            size: 36.0,
-          ),
+        suffixIcon: AnimatedSwitcher(
+          duration: const Duration(milliseconds: 300),
+          child: viewModel.textController.text.isEmpty 
+              ? Icon(
+                  Icons.send,
+                  color: R.color.appBackgroundColor,
+                  size: 36.0,
+                )
+              : GestureDetector(
+                  onTap: viewModel.sendMessage,
+                  child: Icon(
+                    Icons.plus_one,
+                    color: R.color.appBackgroundColor,
+                    size: 36.0,
+                  ),
+                ),
         ),
         hintText: '\tAsk anything',
         fontSize: 16,

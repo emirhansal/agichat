@@ -6,8 +6,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:uuid/uuid.dart';
 import 'package:intl/intl.dart';
+import 'package:uuid/uuid.dart';
 
 class VmHome extends ViewModelBase {
   final ServiceRoute serviceRoute;
@@ -54,6 +54,9 @@ class VmHome extends ViewModelBase {
     setActivityState(ActivityState.isLoading);
     fetchChatHistory();
     textController.clear();
+    textController.addListener(() {
+      notifyListeners();
+    });
     chatId = Uuid().v4();
     setActivityState(ActivityState.isLoaded);
   }
